@@ -1,2 +1,2 @@
 # RetrofitUtil
-将Retrofit和RxJava封装成一个模块，具备网络超时设定，超时重连，网络连接错误提示，网络拦截器定义，进度对话框。使用简单，只需在APIService中定义API接口，定义返回json的Bean，定义APIFactory中定义具体的网络请求接口。
+将Retrofit和RxJava封装成一个模块，具备网络超时设定，超时重连，网络连接错误提示，网络拦截器定义，进度对话框。使用简单，只需在APIService中定义API接口，定义返回json的Bean，定义APIFactory中定义具体的网络请求接口。在使用的位置添加为API接口设置返回结果的回调处理即可
