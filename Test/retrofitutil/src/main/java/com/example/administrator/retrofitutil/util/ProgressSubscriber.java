@@ -33,6 +33,17 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
         mProgressDialogHandler = new ProgressDialogHandler(context, this, true);
     }
 
+    //设置是否显示进度框
+    public ProgressSubscriber(SubscriberOnNextListenter mSubscriberOnNextListenter, Context context,
+        boolean isShowProgressDialog) {
+        this.mSubscriberOnNextListenter = mSubscriberOnNextListenter;
+        this.context = context;
+
+        if (!isShowProgressDialog) return;
+        mProgressDialogHandler = new ProgressDialogHandler(context, this, true);
+    }
+
+    //设置进度框取消的回调处理
     public ProgressSubscriber(SubscriberOnNextListenter mSubscriberOnNextListenter,
                               ProgressCancelListener progressCancelListener,  Context context) {
         this.mSubscriberOnNextListenter = mSubscriberOnNextListenter;

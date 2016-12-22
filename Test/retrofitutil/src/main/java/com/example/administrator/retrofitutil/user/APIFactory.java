@@ -1,11 +1,9 @@
 package com.example.administrator.retrofitutil.user;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.administrator.retrofitutil.bean.VersionBean;
 import com.example.administrator.retrofitutil.util.HttpUtil;
-import com.example.administrator.retrofitutil.util.ProgressCancelListener;
 import com.example.administrator.retrofitutil.util.ProgressSubscriber;
 import com.example.administrator.retrofitutil.util.SubscriberOnNextListenter;
 
@@ -41,11 +39,13 @@ public class APIFactory {
         //Rerofit中封装了超时处理机制，拦截器
         Observable<VersionBean> call = HttpUtil.getApiService().getVersionRxjava();
 //        HttpUtil.toSubscribe(call, new ProgressSubscriber<VersionBean>(nextListenter, mContext));
-        HttpUtil.toSubscribe(call, new ProgressSubscriber<VersionBean>(nextListenter, new ProgressCancelListener() {
-            @Override
-            public void onCancelProgress() {
-                Log.w("ZHT","dialog cancle");
-            }
-        }, mContext));
+
+//        HttpUtil.toSubscribe(call, new ProgressSubscriber<VersionBean>(nextListenter, new ProgressCancelListener() {
+//            @Override
+//            public void onCancelProgress() {
+//                Log.w("ZHT","dialog cancle");
+//            }
+//        }, mContext));
+        HttpUtil.toSubscribe(call, new ProgressSubscriber<VersionBean>(nextListenter, mContext,false));
     }
 }
